@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js process.env.PORT process.env.ORIGIN",
-    "start-default": "PORT=9000 ORIGIN='http://127.0.0.1:7070' node index.js process.env.PORT process.env.ORIGIN",
+    "start": "node index.js",
+    "start-default": "PORT=9000 ORIGIN='http://127.0.0.1:7070' node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

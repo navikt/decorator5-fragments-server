@@ -2,5 +2,5 @@
 
 ```
   npm install
-  npm run-default
+  npm run start-default
 ```

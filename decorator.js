@@ -20,7 +20,8 @@ const decoratedUrl = `${
   APPRES_CMS_URL
 }${DECORATOR_PATH}?header-withmenu=${DECORATOR_FRAGMENT_HEADER_WITHMENU}&styles=${DECORATOR_FRAGMENT_STYLES}&scripts=${DECORATOR_FRAGMENT_SCRIPTS}&footer-withmenu=${DECORATOR_FRAGMENT_FOOTER_WITH_MENU}&skiplinks=${DECORATOR_FRAGMENT_SKIP_LINKS}&megamenu-resources=${DECORATOR_FRAGMENT_MEGAMENU_RESOURCES}`;
 
-console.log(decoratedUrl);
+console.log(`Fetching legacy decorator fragments: ${decoratedUrl}`);
+
 const requestDecorator = callback =>
   request(
     decoratedUrl,
