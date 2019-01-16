@@ -1,0 +1,27 @@
+{
+  "name": "decorator5-fragments-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js process.env.PORT process.env.ORIGIN",
+    "start-default": "PORT=9000 ORIGIN='http://127.0.0.1:7070' node index.js process.env.PORT process.env.ORIGIN",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navikt/decorator5-fragments-server.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/navikt/decorator5-fragments-server/issues"
+  },
+  "homepage": "https://github.com/navikt/decorator5-fragments-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsdom": "^13.1.0",
+    "request": "^2.88.0"
+  }
+}
