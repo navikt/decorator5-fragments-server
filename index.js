@@ -1,6 +1,8 @@
 
 const app = require('express')();
 const getDecorator = require('./decorator.js');
+const legeacyAdapter = require('./legacy-adapter.js');
+const v5 = require('./v5.js');
 const cors = require('cors');
 
 const corz = cors({origin: process.env.ORIGIN, credentials: true});
@@ -10,25 +12,19 @@ app.use(corz);
 getDecorator()
 .then((fragments) => {
 
-  app.get('/header', (req, res) => {
-    res.send(fragments.header);
+  const legacyRenderer = legeacyAdapter(fragments);
+  const v5Renderer = v5();
+
+  // serving legacy v4 content
+  app.get('/legacy/*', (req, res) => {
+    legacyRenderer(req, res);
   });
-  app.get('/footer', (req, res) => {
-    res.send(fragments.footer);
+
+  // serving v5 content
+  app.get('/*', (req, res) => {
+    v5Renderer(req, res);
   });
-  app.get('/styles', (req, res) => {
-    res.send(fragments.styles);
-  });
-  app.get('/scripts', (req, res) => {
-    res.send(fragments.scripts);
-  });
-  app.get('/megamenu', (req, res) => {
-    res.send(fragments.megamenu);
-  });
-  app.get('/skiplinks', (req, res) => {
-    res.send(fragments.skiplinks);
-  });
-  
+
   app.listen(process.env.PORT, () => {
     console.log(`Listening on port: ${process.env.PORT}`); // eslint-disable-line
   });
